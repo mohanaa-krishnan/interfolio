@@ -3,7 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f2efe7">
+  <!-- No-flash theme script: runs before stylesheet to avoid FOIT -->
+  <script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch (_) {}
+  </script>
+  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#0d0d0d">
   <title>Mohanaa Krishnan | Portfolio</title>
   <meta name="description" content="Portfolio of Mohanaa Krishnan, a Computer Science student interested in web development, cybersecurity, and emerging technologies.">
   <meta name="author" content="Mohanaa Krishnan">
@@ -34,13 +43,29 @@
         <span class="brand-mark" aria-hidden="true">mk</span>
         <span>Mohanaa Krishnan <span class="brand-divider">/ portfolio</span></span>
       </a>
-      <nav class="primary-nav" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="header-controls">
+        <nav class="primary-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html" aria-current="page">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <button type="button" class="theme-toggle" aria-pressed="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <span class="theme-toggle-label">Dark mode</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -48,7 +73,7 @@
     <section class="hero container" aria-labelledby="hero-title">
       <div class="hero-copy">
         <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> Portfolio</p>
-        <h1 id="hero-title">Hi, I’m Mohanaa Krishnan. <em>This is the work.</em></h1>
+        <h1 id="hero-title">Hi, I'm Mohanaa Krishnan. <em>This is the work.</em></h1>
         <p class="hero-lede">A small, accessible site for my projects: what I build, the tools I explore, and the ideas I want to bring to life. The code lives on GitHub.</p>
         <div class="hero-actions">
           <a class="button button-primary" href="projects.html">See the projects <span aria-hidden="true">↗</span></a>
@@ -74,7 +99,7 @@
           <h2 id="about-title">About <em>Mohanaa Krishnan</em></h2>
         </div>
         <div class="about-copy">
-          <p class="about-lede">I’m a passionate Computer Science student interested in web development, cybersecurity, and emerging technologies. I enjoy building creative projects, exploring new tools, and solving real-world problems through technology. I’m always eager to learn, improve my skills, and turn ideas into meaningful digital experiences.</p>
+          <p class="about-lede">I'm a passionate Computer Science student interested in web development, cybersecurity, and emerging technologies. I enjoy building creative projects, exploring new tools, and solving real-world problems through technology. I'm always eager to learn, improve my skills, and turn ideas into meaningful digital experiences.</p>
           <dl class="profile-facts">
             <div><dt>Currently</dt><dd>Computer Science (Cybersecurity) student at Rajalakshmi Engineering College</dd></div>
             <div><dt>Code</dt><dd><a href="https://github.com/mohanaa-krishnan?tab=repositories" rel="me noopener">Repositories on GitHub</a></dd></div>

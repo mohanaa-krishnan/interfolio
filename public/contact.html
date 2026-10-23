@@ -3,7 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f2efe7">
+  <!-- No-flash theme script: runs before stylesheet to avoid FOIT -->
+  <script>
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.setAttribute('data-theme', t);
+    } catch (_) {}
+  </script>
+  <meta name="theme-color" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)"  content="#0d0d0d">
   <title>Contact | Mohanaa Krishnan</title>
   <meta name="description" content="Contact Mohanaa Krishnan about projects or opportunities through GitHub or LinkedIn.">
   <meta name="author" content="Mohanaa Krishnan">
@@ -31,30 +40,63 @@
         <span class="brand-mark" aria-hidden="true">mk</span>
         <span>Mohanaa Krishnan <span class="brand-divider">/ portfolio</span></span>
       </a>
-      <nav class="primary-nav" aria-label="Main navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="contact.html" aria-current="page">Contact</a></li>
-        </ul>
-      </nav>
+      <div class="header-controls">
+        <nav class="primary-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html" aria-current="page">Contact</a></li>
+          </ul>
+        </nav>
+        <button type="button" class="theme-toggle" aria-pressed="false">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <span class="theme-toggle-label">Dark mode</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main id="main-content">
     <section class="page-hero container" aria-labelledby="page-title">
       <p class="eyebrow"><span class="section-number">03</span> Contact / next steps</p>
-      <h1 id="page-title">Let’s <em>talk.</em></h1>
+      <h1 id="page-title">Let's <em>talk.</em></h1>
       <p class="page-lede">Ask about a project, share an opportunity, or say hello through GitHub or LinkedIn.</p>
     </section>
 
     <section class="contact-section container" aria-labelledby="contact-options-title">
-      <p class="eyebrow">Find me online</p>
-      <h2 id="contact-options-title">Get in touch</h2>
-      <ul class="contact-channels" aria-labelledby="contact-options-title">
-        <li><a href="https://github.com/mohanaa-krishnan" rel="me noopener"><span>GitHub</span><span>mohanaa-krishnan</span><span aria-hidden="true">↗</span></a></li>
-        <li><a href="https://www.linkedin.com/in/mohanaa-krishnan-158877358/" rel="me noopener"><span>LinkedIn</span><span>Mohanaa Krishnan</span><span aria-hidden="true">↗</span></a></li>
-      </ul>
+      <div class="contact-aside">
+        <p class="eyebrow">Find me online</p>
+        <h2 id="contact-options-title">Get in touch</h2>
+        <p>The best way to reach me is through GitHub or LinkedIn. I'm open to project collaborations, opportunities, and questions about my work.</p>
+      </div>
+      <div class="contact-channels-wrap">
+        <ul class="contact-channels" aria-labelledby="contact-options-title">
+          <li>
+            <a href="https://github.com/mohanaa-krishnan" rel="me noopener">
+              <span>GitHub</span>
+              <span>mohanaa-krishnan</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.linkedin.com/in/mohanaa-krishnan-158877358/" rel="me noopener">
+              <span>LinkedIn</span>
+              <span>Mohanaa Krishnan</span>
+              <span aria-hidden="true">↗</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     </section>
   </main>
 
